@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PlayerInfoController">
+   <children>
+      <Label layoutX="88.0" layoutY="14.0" text="Player Information">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <Button fx:id="Button" disable="false" layoutX="279.0" layoutY="309.0" mnemonicParsing="false" onAction="#changeSceneToBoardView" text="SUBMIT" />
+      <VBox layoutX="99.0" layoutY="150.0" prefHeight="100.0" prefWidth="194.0">
+         <children>
+            <Label text="Player 1:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="5.0" prefWidth="194.0">
+               <children>
+                  <Label text="Name: " />
+                  <TextField fx:id="nameP1" prefHeight="40.0" prefWidth="149.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="194.0">
+               <children>
+                  <Label text="Color: " />
+                  <ChoiceBox fx:id="colorP1" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="308.0" layoutY="150.0" prefHeight="100.0" prefWidth="194.0">
+         <children>
+            <Label text="Player 2:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="5.0" prefWidth="194.0">
+               <children>
+                  <Label text="Name: " />
+                  <TextField fx:id="nameP2" prefHeight="40.0" prefWidth="149.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="194.0">
+               <children>
+                  <Label text="Color: " />
+                  <ChoiceBox fx:id="colorP2" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controller.IntroductionController">
+   <children>
+      <Label layoutX="92.0" layoutY="14.0" text="Ticket to Ride">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Label>
+      <Label layoutX="126.0" layoutY="107.0" prefHeight="192.0" prefWidth="353.0" text="Ticket to Ride is a cross-country train adventure where players collect cards of various types of train cars that enable them to claim railway routes connecting cities in various countries around the world.&#10;&#10;If you are ready to play, press 'START'!&#10;" textAlignment="JUSTIFY" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button onAction="#handleActionButton" layoutX="278.0" layoutY="324.0" mnemonicParsing="false" text="START" />
+   </children>
+</AnchorPane>

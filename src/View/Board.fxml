@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BoardController">
+   <children>
+      <ImageView fitHeight="344.0" fitWidth="720.0" layoutX="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Board.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" layoutX="46.0" layoutY="355.0" prefHeight="122.0" prefWidth="137.0">
+         <children>
+            <Label text="Legend">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="2 Trains ----- 1 Point&#10;3 Trains ----- 4 Point&#10;4 Trains ----- 7 Point&#10;5 Trains ---- 10 Point" />
+         </children>
+      </VBox>
+      <Button fx:id="endGame" layoutX="630.0" layoutY="465.0" mnemonicParsing="false" text="End Game" />
+      <HBox alignment="CENTER" layoutX="185.0" layoutY="355.0" prefHeight="25.0" prefWidth="530.0">
+         <children>
+            <Button fx:id="trainCard" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Draw 2 Train Cards" />
+            <Button fx:id="destinationCard" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Draw 2 Destination Cards" />
+            <Button fx:id="claimRoute" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Claim a Route" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <TextArea fx:id="display" layoutX="204.0" layoutY="398.0" prefHeight="56.0" prefWidth="492.0" />
+      <VBox layoutX="193.0" layoutY="255.0" prefHeight="86.0" prefWidth="345.0">
+         <children>
+            <Label alignment="TOP_CENTER" prefHeight="35.0" prefWidth="432.0" text="Score Board">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="407.0">
+               <children>
+                  <VBox prefHeight="17.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="152.0">
+                           <children>
+                              <Label text="Player 1: " />
+                              <Label fx:id="nameP1" text="Name Here" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="152.0">
+                           <children>
+                              <Label text="Score: " />
+                              <Label fx:id="scoreP1" text="Score Here" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="79.0" prefHeight="100.0" prefWidth="152.0">
+                           <children>
+                              <Label text="Tokens remaining: " />
+                              <Label fx:id="tokenP1" text="Token Here" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="56.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="152.0">
+                           <children>
+                              <Label text="Player 2: " />
+                              <Label fx:id="nameP2" text="Name Here" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="152.0">
+                           <children>
+                              <Label text="Score: " />
+                              <Label fx:id="scoreP2" text="Score Here" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="152.0">
+                           <children>
+                              <Label text="Tokens remaining: " />
+                              <Label fx:id="tokenP2" text="Token Here" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Circle fx:id="SF" fill="#1fff35" layoutX="128.0" layoutY="114.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="MV" fill="#1fff35" layoutX="129.0" layoutY="212.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="H" fill="#1fff35" layoutX="358.0" layoutY="212.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="O" fill="#1fff35" layoutX="357.0" layoutY="114.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="V" fill="#1fff35" layoutX="588.0" layoutY="114.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="SR" fill="#1fff35" layoutX="589.0" layoutY="212.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

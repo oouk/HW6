@@ -21,8 +21,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * Title: HW6 Date: 12/7/2018
- *
+ * Title: HW6
+ * Date: 12/9/2018
  * @author sphein; oouk
  */
 public class PlayerInfoController implements Initializable {
