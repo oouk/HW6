@@ -30,7 +30,6 @@
             <Label alignment="CENTER" contentDisplay="CENTER" text="2 Trains ----- 1 Point&#10;3 Trains ----- 4 Point&#10;4 Trains ----- 7 Point&#10;5 Trains ---- 10 Point" />
          </children>
       </VBox>
-      <Button fx:id="endGame" layoutX="630.0" layoutY="465.0" mnemonicParsing="false" onAction="#endGame" text="End Game" />
       <HBox alignment="CENTER" layoutX="185.0" layoutY="355.0" prefHeight="25.0" prefWidth="530.0">
          <children>
             <Button fx:id="trainCard" mnemonicParsing="false" onAction="#drawTrainCard" prefHeight="25.0" prefWidth="165.0" text="Draw 2 Train Cards" />
@@ -112,5 +111,11 @@
       <Label layoutX="213.0" layoutY="226.0" text="R6&#10;4 Trains" textAlignment="CENTER" />
       <Label layoutX="606.0" layoutY="155.0" text="R4&#10;2 Trains" textAlignment="CENTER" />
       <Label layoutX="292.0" layoutY="155.0" text="R7&#10;3 Trains" textAlignment="CENTER" />
+      <HBox alignment="CENTER" layoutX="530.0" layoutY="465.0" prefHeight="17.0" prefWidth="173.0">
+         <children>
+            <Button fx:id="startGame" mnemonicParsing="false" text="Start Game" onAction="#startGame" textAlignment="CENTER" />
+            <Button fx:id="endGame" mnemonicParsing="false" onAction="#endGame" text="End Game" textAlignment="CENTER" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -6,6 +6,7 @@ import Model.Deck;
 import Model.DestinationCards;
 import Model.Player;
 import Model.Route;
+import Model.TrainTokens;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -19,8 +20,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.shape.Circle;
 
 /**
- * Title: HW6 
- * Date: 12/7/2018
+ * Title: HW6 Date: 12/7/2018
+ *
  * @author sphein; oouk
  */
 public class BoardController implements Initializable {
@@ -123,11 +124,6 @@ public class BoardController implements Initializable {
         aDeck.setFaceUp();
         board.initializeBoard(c1, c2, c3, c4, c5, c6);
         board.addroutes(r1, r2, r3, r4, r5, r6, r7);
-
-        //give players Train Car Cards
-        P1.addTrainCarCards(aDeck.drawTrainCarCard(), aDeck.drawTrainCarCard());
-        P2.addTrainCarCards(aDeck.drawTrainCarCard(), aDeck.drawTrainCarCard());
-        Player playerNow = P1;
     }
 
     /**
@@ -149,6 +145,53 @@ public class BoardController implements Initializable {
         this.nameP2.setText(this.P2.getName());
         this.scoreP2.setText(this.P2.getPoints());
         this.tokenP2.setText(this.P2.getTrains());
+    }
+
+    /**
+     * ends the game, closes screen
+     *
+     * @param event
+     */
+    @FXML
+    public void startGame(ActionEvent event) {
+        //give players Train Car Cards
+        P1.addTrainCarCards(aDeck.drawTrainCarCard(), aDeck.drawTrainCarCard());
+        P2.addTrainCarCards(aDeck.drawTrainCarCard(), aDeck.drawTrainCarCard());
+        Player playerNow = P1;
+
+        //give players Destination Cards
+        for (int i = 0; i < 2; i++) {
+            display.setText(playerNow.getName() + ", here are your first two destination cards: ");
+            dc1 = aDeck.drawDestinationCard();
+            display.setText("First Destination Card: " + dc1.toString());
+            dc2 = aDeck.drawDestinationCard();
+            display.setText("Second Destination Card: " + dc2.toString());
+            display.setText("Would you like to discard one?\n"
+                    + "[1] : The First One\n"
+                    + "[2] : The Second One\n"
+                    + "[0] : None\n");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 0:
+                    System.out.println("Ok!");
+                    playerNow.addDestinationCards(dc1, dc2);
+                    break;
+                case 1:
+                    playerNow.addDestinationCards(dc2);
+                    aDeck.discardDestinationCard(dc1);
+                    break;
+                case 2:
+                    playerNow.addDestinationCards(dc1);
+                    aDeck.discardDestinationCard(dc2);
+                    break;
+                default:
+                    break;
+            }
+            if (playerNow.getName().equalsIgnoreCase(P1.getName())) {
+                P1 = playerNow;
+                playerNow = P2;
+            }
+        }
     }
 
     /**
