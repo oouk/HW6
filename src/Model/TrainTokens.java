@@ -1,8 +1,8 @@
 package Model;
 
 /**
- * Title: HW6
- * Date: 11/28/2018
+ * Title: HW6 
+ * Date: 12/7/2018
  * @author sphein; oouk
  */
 public class TrainTokens {
@@ -22,6 +22,5 @@ public class TrainTokens {
      */
     public String getColor() {
         return this.color;
-    }
-    
+    }  
 }

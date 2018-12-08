@@ -1,11 +1,12 @@
 package Model;
 
 /**
- * Title: HW6
- * Date: 11/28/2018
+ * Title: HW6 
+ * Date: 12/7/2018
  * @author sphein; oouk
  */
-public class Route implements Comparable<Route>{
+public class Route implements Comparable<Route> {
+
     private String color;
     private int number;
     private int claimed;
@@ -13,54 +14,64 @@ public class Route implements Comparable<Route>{
     private String routeOrder;
     private String claimedBy;
 
-    
-    public Route(String c, int n, String r){
+    public Route(String c, int n, String r) {
         this.color = c;
         this.number = n;
         this.claimed = 0;
         this.routeOrder = r;
         this.outputName = this.color + "(" + this.number + ")" + " " + this.routeOrder;
     }
-    
-    public void setColor(String c){
+
+    public void setColor(String c) {
         this.color = c;
     }
-    public String getColor(){
+
+    public String getColor() {
         return this.color;
     }
-    public void setNumber(int n){
+
+    public void setNumber(int n) {
         this.number = n;
     }
-    public int getNumber(){
+
+    public int getNumber() {
         return this.number;
     }
-    public int getClaimed(){
+
+    public int getClaimed() {
         return this.claimed;
     }
-    public void setClaimed(){
+
+    public void setClaimed() {
         this.claimed = 1;
     }
-    public void resetClaimed(){
+
+    public void resetClaimed() {
         this.claimed = 0;
     }
 
     @Override
     public int compareTo(Route o) {
-        if(this.color.equals(o.getColor()))
+        if (this.color.equals(o.getColor())) {
             return 1;
+        }
         return 0;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.outputName;
     }
-    public String getrouteOrder(){
+
+    public String getrouteOrder() {
         return this.routeOrder;
     }
-    public void setClaimedBy(String n){
+
+    public void setClaimedBy(String n) {
         this.claimedBy = n;
     }
-    public String getClaimedBy(){
+
+    public String getClaimedBy() {
         return this.claimedBy;
     }
 }

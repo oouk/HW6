@@ -1,20 +1,27 @@
 package Model;
 
 /**
- * Title: HW6
- * Date: 11/28/2018
+ * Title: HW6 
+ * Date: 12/7/2018
  * @author sphein; oouk
  */
 public class TrainCarCards {
+
     private String colorTrainCarCard;
-    
-    public TrainCarCards(String c){
+
+    /**
+     * constructor
+     *
+     * @param c color of card
+     */
+    public TrainCarCards(String c) {
         this.colorTrainCarCard = c;
     }
-    
-    public String getcolorTrainCarCard(){
+
+    /**
+     * @return color of card
+     */
+    public String getcolorTrainCarCard() {
         return this.colorTrainCarCard;
     }
-    
-
 }
