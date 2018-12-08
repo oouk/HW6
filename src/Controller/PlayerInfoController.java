@@ -7,6 +7,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,8 +23,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * Title: HW6
- * Date: 12/9/2018
+ * Title: HW6 Date: 12/9/2018
+ *
  * @author sphein; oouk
  */
 public class PlayerInfoController implements Initializable {
@@ -70,7 +72,7 @@ public class PlayerInfoController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void changeSceneToBoardView(ActionEvent event) throws IOException {
+    public void changeSceneToBoardView(ActionEvent event) {
 
         //checks to see if player name has been entered before proceeding
         do {
@@ -84,15 +86,9 @@ public class PlayerInfoController implements Initializable {
                 System.out.println("Please select a unique color for each player.");
                 break;
             } else {
-                //FXMLLoader required file path location to load
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/View/Board.fxml"));
-                Parent root = (Parent) loader.load();
-
                 //retrieve player name and color
                 String nP1 = this.nameP1.getText();
                 String cP1 = this.colorP1.getSelectionModel().getSelectedItem().toString();
-
                 TrainTokens trainColorP1 = new TrainTokens(cP1);
                 Player P1 = new Player(nP1, trainColorP1);
 
@@ -101,18 +97,27 @@ public class PlayerInfoController implements Initializable {
                 TrainTokens trainColorP2 = new TrainTokens(cP2);
                 Player P2 = new Player(nP2, trainColorP2);
 
+                //FXMLLoader required file path location to load
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/View/Board.fxml"));
+                try {
+                    loader.load();
+                } catch (IOException ex) {
+                    Logger.getLogger(PlayerInfoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 //access the controller and call a method
-                BoardController controller = loader.<BoardController>getController();
+                BoardController controller = loader.getController();
                 controller.setScoreBoard(P1, P2);
 
-                //this line will get the stage info
-                Scene newScene = new Scene(root);
-
+                //this will get the stage info
+                Parent root = loader.getRoot();
                 Stage newStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
                 newStage.setTitle("Board Game");
-                newStage.setScene(newScene);
+                newStage.setScene(new Scene(root));
                 newStage.show();
+                break;
             }
         } while (true);
     }

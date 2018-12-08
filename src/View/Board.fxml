@@ -30,12 +30,12 @@
             <Label alignment="CENTER" contentDisplay="CENTER" text="2 Trains ----- 1 Point&#10;3 Trains ----- 4 Point&#10;4 Trains ----- 7 Point&#10;5 Trains ---- 10 Point" />
          </children>
       </VBox>
-      <Button fx:id="endGame" layoutX="630.0" layoutY="465.0" mnemonicParsing="false" text="End Game" />
+      <Button fx:id="endGame" layoutX="630.0" layoutY="465.0" mnemonicParsing="false" onAction="#endGame" text="End Game" />
       <HBox alignment="CENTER" layoutX="185.0" layoutY="355.0" prefHeight="25.0" prefWidth="530.0">
          <children>
-            <Button fx:id="trainCard" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Draw 2 Train Cards" />
-            <Button fx:id="destinationCard" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Draw 2 Destination Cards" />
-            <Button fx:id="claimRoute" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Claim a Route" />
+            <Button fx:id="trainCard" mnemonicParsing="false" onAction="#drawTrainCard" prefHeight="25.0" prefWidth="165.0" text="Draw 2 Train Cards" />
+            <Button fx:id="destinationCard" mnemonicParsing="false" onAction="#drawDestinationCard" prefHeight="25.0" prefWidth="165.0" text="Draw 2 Destination Cards" />
+            <Button fx:id="claimRoute" mnemonicParsing="false" onAction="#claimRoute" prefHeight="25.0" prefWidth="165.0" text="Claim a Route" />
          </children>
          <opaqueInsets>
             <Insets />
