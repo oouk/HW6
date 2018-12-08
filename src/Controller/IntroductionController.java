@@ -40,10 +40,10 @@ public class IntroductionController implements Initializable {
         Parent playerScreen = FXMLLoader.load(getClass().getResource("/View/PlayerInfo.fxml"));
 
         Scene playerScene = new Scene(playerScreen);
-        
+
         //this line will get the stage info
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         window.setTitle("Player Information");
         window.setScene(playerScene);
         window.show();
