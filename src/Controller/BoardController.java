@@ -1,8 +1,14 @@
 package Controller;
 
+import Model.Board;
+import Model.City;
+import Model.Deck;
+import Model.DestinationCards;
 import Model.Player;
+import Model.Route;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,8 +19,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.shape.Circle;
 
 /**
- * Title: HW6 Date: 12/7/2018
- *
+ * Title: HW6 
+ * Date: 12/7/2018
  * @author sphein; oouk
  */
 public class BoardController implements Initializable {
@@ -55,8 +61,25 @@ public class BoardController implements Initializable {
     private Circle SR;
 
     //variables
+    private Board board = new Board();
     private Player P1;
     private Player P2;
+    private int choice;
+    private Scanner sc = new Scanner(System.in);
+    private Deck aDeck = new Deck();
+    private DestinationCards dc1;
+    private DestinationCards dc2;
+    private DestinationCards dc3;
+    private boolean enoughTrainsa;
+    private int numTrainCards = 0;
+    private boolean drawInsideClaim = false;
+    private int endCount = 0;
+    private City c1 = new City("Oakland");
+    private City c2 = new City("Hayward");
+    private City c3 = new City("Vallejo");
+    private City c4 = new City("Mountain View");
+    private City c5 = new City("San Rafael");
+    private City c6 = new City("San Francisco");
 
     /**
      * @param url
@@ -64,6 +87,47 @@ public class BoardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //create cities and routes
+        Route r1 = new Route("Red", 2, "R1");
+        Route r2 = new Route("Blue", 5, "R2");
+        Route r3 = new Route("Yellow", 4, "R3");
+        Route r4 = new Route("Red", 2, "R4");
+        Route r5 = new Route("Blue", 5, "R5");
+        Route r6 = new Route("Yellow", 4, "R6");
+        Route r7 = new Route("Green", 3, "R7");
+
+        c1.addRoute(r2);
+        c1.addRoute(r3);
+        c1.addRoute(r7);
+
+        c2.addRoute(r5);
+        c2.addRoute(r6);
+        c2.addRoute(r7);
+
+        c3.addRoute(r4);
+        c3.addRoute(r3);
+
+        c4.addRoute(r1);
+        c4.addRoute(r6);
+
+        c5.addRoute(r5);
+        c5.addRoute(r4);
+        c5.addRoute(r7);
+
+        c6.addRoute(r1);
+        c6.addRoute(r2);
+
+        //initiliaze decks and board
+        aDeck.setTCDeck();
+        aDeck.setDCDeck(c1, c2, c3, c4, c5, c6);
+        aDeck.setFaceUp();
+        board.initializeBoard(c1, c2, c3, c4, c5, c6);
+        board.addroutes(r1, r2, r3, r4, r5, r6, r7);
+
+        //give players Train Car Cards
+        P1.addTrainCarCards(aDeck.drawTrainCarCard(), aDeck.drawTrainCarCard());
+        P2.addTrainCarCards(aDeck.drawTrainCarCard(), aDeck.drawTrainCarCard());
+        Player playerNow = P1;
     }
 
     /**
@@ -86,40 +150,44 @@ public class BoardController implements Initializable {
         this.scoreP2.setText(this.P2.getPoints());
         this.tokenP2.setText(this.P2.getTrains());
     }
-    
+
     /**
      * ends the game, closes screen
+     *
      * @param event
      */
     @FXML
     public void endGame(ActionEvent event) {
         Platform.exit();
     }
-    
+
     /**
      * draws two train cards
+     *
      * @param event
      */
     @FXML
     public void drawTrainCard(ActionEvent event) {
-        
+
     }
-    
+
     /**
      * draws two destination cards
+     *
      * @param event
      */
     @FXML
     public void drawDestinationCard(ActionEvent event) {
-        
+
     }
-    
+
     /**
      * claims a route
+     *
      * @param event
      */
     @FXML
     public void claimRoute(ActionEvent event) {
-        
+
     }
 }
